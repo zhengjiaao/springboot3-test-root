@@ -1,0 +1,15 @@
+server:
+  port: 19901
+  servlet:
+    context-path: /
+
+spring:
+  servlet:
+    multipart:
+      # 设置总上传数据总大小 5G
+      max-request-size: 20MB
+      # 设置单文件大小 2G
+      max-file-size: 10MB
+
+# 存储目录
+storage-dir: D:\\ocr
