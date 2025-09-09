@@ -1,0 +1,46 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: springboot3-springdoc-demo
+  servlet:
+    multipart:
+      max-file-size: 2049MB     # 设置单文件大小 2G
+      max-request-size: 5121MB  # 设置总上传数据总大小 5G
+
+  # 如果使用 Spring Security
+  security:
+    user:
+      name: admin
+      password: admin123
+
+# SpringDoc OpenAPI 配置 (基于 SpringDocConfigProperties 和 SwaggerUiConfigProperties)
+springdoc:
+  # 包扫描配置（如果API不在主应用包下）
+  #  packages-to-scan: com.example.api, com.example.controller
+
+  # API 文档配置
+  api-docs:
+    path: /v3/api-docs # API文档JSON路径（默认值，可省略）
+    version: OPENAPI_3_1 # OpenAPI规范版本（默认值，可省略）
+
+  # Swagger UI 配置
+  swagger-ui:
+    path: /swagger-ui.html #  默认访问：http://localhost:8080/swagger-ui/index.html
+    # 文档展开方式 (默认: null 可选: list, full, none)
+    doc-expansion: none
+    # 默认模型展开深度 (默认: null)
+    default-models-expand-depth: 0
+    # 启用授权按钮
+    try-it-out-enabled: true
+    # 默认展开授权部分
+    display-operation-id: false
+  show-actuator: true
+
+app:
+  jwt:
+    secret: mySecretKeymySecretKeymySecretKeymySecretKey
+    expiration: 86400000 # 24小时

@@ -1,0 +1,254 @@
+# SpringDoc OpenAPI 配置 (基于 SpringDocConfigProperties 和 SwaggerUiConfigProperties)
+springdoc:
+  # API 文档核心配置
+  api-docs:
+    # API 文档 JSON 路径 (默认: /v3/api-docs)
+    path: /v3/api-docs
+    # 是否启用 API 文档 (默认: true)
+    enabled: true
+    # 是否解析 Schema 属性 (默认: false)
+    resolve-schema-properties: false
+    # 是否解析扩展属性 (默认: false)
+    resolve-extensions-properties: false
+    # OpenAPI 规范版本 (默认: OPENAPI_3_1)
+    version: OPENAPI_3_1
+    # 分组配置
+    groups:
+      # 是否启用分组 (默认: false)
+      enabled: false
+
+  # WebJars 配置
+  webjars:
+    # WebJars 资源前缀 (默认: /webjars)
+    prefix: /webjars
+
+  # Swagger UI 配置 (基于 AbstractSwaggerUiConfigProperties 和 SwaggerUiConfigProperties)
+  swagger-ui:
+    # Swagger UI 访问路径 (默认: /swagger-ui.html)
+    # 注意: Spring Boot 3 实际路径为 /swagger-ui/index.html
+    path: /swagger-ui/index.html
+    # 是否启用 Swagger UI (默认: true)
+    enabled: true
+    # 是否禁用默认 Swagger URL (默认: false)
+    disable-swagger-default-url: false
+    # Swagger UI 版本 (默认: 从 springdoc.config.properties 加载)
+    version:
+    # 是否使用根路径 (默认: false)
+    use-root-path: false
+
+    # 布局配置
+    layout:
+    # 配置URL (默认: null)
+    config-url:
+    # 验证器URL (默认: null)
+    validator-url:
+    # 过滤器 (默认: null)
+    filter:
+    # 操作排序方式 (默认: null)
+    # 可选: alpha, method
+    operations-sorter:
+    # 标签排序方式 (默认: null)
+    # 可选: alpha, order
+    tags-sorter:
+    # 是否启用深度链接 (默认: null)
+    deep-linking: true
+    # 是否显示操作ID (默认: null)
+    display-operation-id: false
+    # 默认模型展开深度 (默认: null)
+    default-models-expand-depth: 1
+    # 默认模型展开深度 (默认: null)
+    default-model-expand-depth: 1
+    # 默认模型渲染方式 (默认: null)
+    # 可选: model, example, schema
+    default-model-rendering:
+    # 是否显示请求持续时间 (默认: null)
+    display-request-duration: false
+    # 文档展开方式 (默认: null)
+    # 可选: list, full, none
+    doc-expansion: list
+    # 最大显示标签数 (默认: null)
+    max-displayed-tags:
+    # 是否显示扩展 (默认: null)
+    show-extensions: false
+    # 是否显示公共扩展 (默认: null)
+    show-common-extensions: false
+    # 支持的提交方法 (默认: null)
+    # 可选: get, put, post, delete, options, head, patch, trace
+    supported-submit-methods:
+      - get
+      - put
+      - post
+      - delete
+      - options
+      - head
+      - patch
+    # OAuth2 重定向URL (默认: /swagger-ui/oauth2-redirect.html)
+    oauth2-redirect-url: /swagger-ui/oauth2-redirect.html
+    # 主要API文档URL (默认: null)
+    url:
+    # 多个API文档URL配置
+    urls: []
+    # 组排序方向 (默认: ASC)
+    # 可选: ASC, DESC
+    groups-order: ASC
+    # 主要URL名称 (默认: null)
+    urls-primary-name:
+    # 是否启用 Try it out 功能 (默认: null)
+    try-it-out-enabled: true
+    # 是否持久化授权 (默认: null)
+    persist-authorization: false
+    # 是否启用查询配置 (默认: null)
+    query-config-enabled: false
+    # 是否使用凭据 (默认: null)
+    with-credentials: false
+
+    # CSRF 配置
+    csrf:
+      # 是否启用 CSRF 保护 (默认: false)
+      enabled: false
+      # 是否使用 localStorage (默认: false)
+      use-local-storage: false
+      # 是否使用 sessionStorage (默认: false)
+      use-session-storage: false
+      # Cookie 名称 (默认: XSRF-TOKEN)
+      cookie-name: XSRF-TOKEN
+      # localStorage 键名 (默认: XSRF-TOKEN)
+      local-storage-key: XSRF-TOKEN
+      # sessionStorage 键名 (默认: XSRF-TOKEN)
+      session-storage-key: XSRF-TOKEN
+      # Header 名称 (默认: X-XSRF-TOKEN)
+      header-name: X-XSRF-TOKEN
+
+    # 语法高亮配置
+    syntax-highlight:
+      # 是否启用语法高亮 (默认: null)
+      activated:
+      # 主题 (默认: null)
+      # 可选:agate,arta,ascetic,atelier-cave.dark,atelier-cave.light,
+      # atelier-dune.dark,atelier-dune.light,atelier-estuary.dark,
+      # atelier-estuary.light,atelier-forest.dark,atelier-forest.light,
+      # atelier-heath.dark,atelier-heath.light,atelier-lakeside.dark,
+      # atelier-lakeside.light,atelier-plateau.dark,atelier-plateau.light,
+      # atelier-savanna.dark,atelier-savanna.light,atelier-seaside.dark,
+      # atelier-seaside.light,atelier-sulphurpool.dark,atelier-sulphurpool.light,
+      # atom-one.dark,atom-one.light,brown-paper,codepen-embed,color-brewer,
+      # darcula,dracula,far,foundation,github,github.dark,gist,googlecode,
+      # gradient-dark,gradient-light,grayscale,hybrid,idea,ir-black,isbl-editor.dark,
+      # isbl-editor.light,kimbie.dark,kimbie.light,lightfair,lioshi, magula,
+      # mono-blue,monokai,monokai.sublime,night,night-eighties,night-owl,
+      # nord,obsidian,ocean,paraiso.dark,paraiso.light,pojoaque,qtcreator.dark,
+      # qtcreator.light,railscasts,rdark,solarized.dark,solarized.light,
+      # sunburst,tomorrow, tomorrow-night,tomorrow-night-blue,
+      # tomorrow-night-bright,tomorrow-night-eighties,vs,vs2015,xcode,
+      # xt256
+      theme:
+
+  # 缓存配置
+  cache:
+    # 是否禁用缓存 (默认: false)
+    disabled: false
+
+  # 通用配置
+  # 是否显示 Actuator 端点 (默认: false)
+  show-actuator: false
+  # 包扫描配置
+  packages-to-scan: []
+  packages-to-exclude: []
+  # 路径匹配配置
+  paths-to-match: []
+  paths-to-exclude: []
+  # 媒体类型匹配
+  produces-to-match: []
+  headers-to-match: []
+  consumes-to-match: []
+  # 模型转换器配置
+  model-converters:
+    deprecating-converter:
+      # 是否启用弃用转换器 (默认: false)
+      enabled: false
+    pageable-converter:
+      # 是否启用分页转换器 (默认: false)
+      enabled: false
+    polymorphic-converter:
+      # 是否启用多态转换器 (默认: false)
+      enabled: false
+  # 排序转换器配置
+  sort-converter:
+    # 是否启用排序转换器 (默认: false)
+    enabled: false
+  # 是否自动为类添加标签 (默认: true)
+  auto-tag-classes: true
+  # 是否允许 ModelAndView (默认: false)
+  model-and-view-allowed: false
+  # 是否覆盖通用响应 (默认: true)
+  override-with-generic-response: true
+  # 是否移除损坏的引用定义 (默认: true)
+  remove-broken-reference-definitions: true
+  # 是否使用默认缩进打印机 (默认: false)
+  writer-with-default-pretty-printer: false
+  # 是否按键排序 (默认: false)
+  writer-with-order-by-keys: false
+  # 默认消费媒体类型 (默认: application/json)
+  default-consumes-media-type: application/json
+  # 默认产生媒体类型 (默认: */*)
+  default-produces-media-type: '*/*'
+  # 是否使用完全限定名 (默认: false)
+  use-fqn: false
+  # 是否显示登录端点 (默认: false)
+  show-login-endpoint: false
+  # 预加载配置
+  pre-loading-enabled: false
+  pre-loading-locales: []
+  # 是否使用管理端口 (默认: false)
+  use-management-port: false
+  # 允许的区域设置
+  allowed-locales: []
+  # 是否禁用国际化 (默认: false)
+  disable-i18n: false
+  # 是否显示 Spring Cloud Functions (默认: true)
+  show-spring-cloud-functions: true
+  # 是否默认扁平化参数对象 (默认: false)
+  default-flat-param-object: false
+  # 是否启用 Groovy 支持 (默认: true)
+  enable-groovy: true
+  # 是否启用 Javadoc 解析 (默认: true)
+  enable-javadoc: true
+  # 是否启用 Spring Security 集成 (默认: true)
+  enable-spring-security: true
+  # 是否启用 Kotlin 支持 (默认: true)
+  enable-kotlin: true
+  # 是否启用 HATEOAS 支持 (默认: true)
+  enable-hateoas: true
+  # 是否启用 Data REST 支持 (默认: true)
+  enable-data-rest: true
+  # 是否启用默认 API 文档 (默认: true)
+  enable-default-api-docs: true
+  # 是否默认支持表单数据 (默认: false)
+  default-support-form-data: false
+  # 是否显示 OAuth2 端点 (默认: false)
+  show-oauth2-endpoints: false
+  # 是否启用额外的 Schema (默认: false)
+  enable-extra-schemas: false
+  # 是否显式对象 Schema (默认: false)
+  explicit-object-schema: false
+  # 是否使用任意 Schema (默认: false)
+  use-arbitrary-schemas: false
+  # 是否启用可空请求参数 (默认: false)
+  nullable-request-parameter-enabled: false
+  # 是否修剪 Kotlin 缩进 (默认: false)
+  trim-kotlin-indent: false
+
+  # 分组配置示例
+  group-configs:
+    - group: public-api
+      paths-to-match:
+        - /api/public/**
+      packages-to-scan:
+        - com.example.public
+      display-name: "公共 API"
+    - group: admin-api
+      paths-to-match:
+        - /api/admin/**
+      packages-to-scan:
+        - com.example.admin
+      display-name: "管理 API"
