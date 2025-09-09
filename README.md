@@ -1,4 +1,4 @@
-# springboot-test-root
+# springboot3-test-root
 
 > [springboot 3.x 官方文档](https://spring.io/projects/spring-boot)
 
@@ -47,9 +47,10 @@ springboot3 项目中常用到的一些技术集成示例，可以快速开始�
 
 2025年计划：
 
-|               | 说明                            | 是否完成 |
-|---------------|-------------------------------|------|
-| springboot-ai | 预研Ai相关技术(ChatGPT、ChatGLM、...) | 进行中  |
+|                    | 说明                            | 是否完成 |
+|--------------------|-------------------------------|------|
+| springboot-ai      | 预研Ai相关技术(ChatGPT、ChatGLM、...) | 进行中  |
+| springboot-package | 预研集成组件(db、mq、...)             | 进行中  |
 
 ## 你还可以学习其他项目
 
