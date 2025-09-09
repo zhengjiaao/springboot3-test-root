@@ -12,15 +12,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.theokanning.openai.completion.CompletionRequest;
 import com.theokanning.openai.completion.CompletionResult;
 import com.theokanning.openai.service.OpenAiService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -32,7 +31,7 @@ import java.util.Map;
  * @author: zhengja
  * @since: 2023/03/30 19:07
  */
-@Api("")
+@Tag(name = "OpenAiChatController", description = "OpenAiChatController")
 @RestController
 @RequestMapping("/ai")
 public class OpenAiChatController {
@@ -43,7 +42,7 @@ public class OpenAiChatController {
     private OpenAiService openAiService;
 
     @GetMapping("/chat")
-    @ApiOperation(value = "聊天", notes = "")
+    @Operation(summary = "聊天", description = "")
     public String chat(String prompt) {
         CompletionRequest completionRequest = CompletionRequest.builder().prompt(prompt).model(openAiModel).echo(true).temperature(0.7).topP(1d).frequencyPenalty(0d).presencePenalty(0d).maxTokens(1000).build();
         CompletionResult completionResult = openAiService.createCompletion(completionRequest);
@@ -51,7 +50,7 @@ public class OpenAiChatController {
     }
 
     @PostMapping("/chat/v2")
-    @ApiOperation(value = "聊天2", notes = "")
+    @Operation(summary = "聊天2", description = "")
     public Map chatV2() {
 
         try {

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @RequestMapping("/rest/deepseek/")
-@Api(tags = {"deepseek对话管理页面"})
+@Tag(name = {"deepseek对话管理页面"})
 public class DeepseekController {
 
     @Autowired

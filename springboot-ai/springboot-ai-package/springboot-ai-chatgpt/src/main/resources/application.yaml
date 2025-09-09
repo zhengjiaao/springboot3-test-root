@@ -1,0 +1,13 @@
+#密钥
+open:
+  ai:
+    key: sess-b1N9dTWt9QIW8NtcSwSiTtQQc7p66KXfMGDQ1G9x
+    model: text-davinci-003
+    request:
+      timeout: 100000
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html # 访问地址：http://localhost:8080/swagger-ui/index.html
+    doc-expansion: none
+    default-models-expand-depth: 0

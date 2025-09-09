@@ -4,32 +4,22 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.zja</groupId>
-        <artifactId>springboot-ai</artifactId>
+        <artifactId>springboot-ai-alibaba</artifactId>
         <version>3.0-SNAPSHOT</version>
     </parent>
 
     <groupId>com.zja</groupId>
-    <artifactId>springboot-ai-chatgpt</artifactId>
+    <artifactId>springboot-ai-alibaba-bailian</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
 
-      <!--  <dependency>
-            <groupId>com.theokanning.openai-gpt3-java</groupId>
-            <artifactId>client</artifactId>
-            <version>0.11.1</version>
-        </dependency>-->
-
+        <!--阿里百炼大模型-->
+        <!-- https://mvnrepository.com/artifact/com.alibaba/dashscope-sdk-java -->
         <dependency>
-            <groupId>com.theokanning.openai-gpt3-java</groupId>
-            <artifactId>api</artifactId>
-            <version>0.11.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.theokanning.openai-gpt3-java</groupId>
-            <artifactId>service</artifactId>
-            <version>0.11.1</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dashscope-sdk-java</artifactId>
+            <version>2.16.8</version>
         </dependency>
 
         <dependency>
@@ -37,9 +27,15 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <version>3.0.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- springdoc-openapi-ui for swagger ui -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.8.9</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

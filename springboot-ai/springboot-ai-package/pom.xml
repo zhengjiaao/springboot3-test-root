@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>springboot-ai</artifactId>
+		<groupId>com.zja</groupId>
+		<version>3.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>springboot-ai-package</artifactId>
+	<packaging>pom</packaging>
+
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+
+	<modules>
+		<module>springboot-ai-alibaba</module>
+		<module>springboot-ai-asr</module>
+		<module>springboot-ai-chatgpt</module>
+		<!-- <module>springboot-ai-deepseek</module> -->
+		<module>springboot-ai-langchain4j</module>
+		<module>springboot-ai-nlp</module>
+		<module>springboot-ai-ocr</module>
+	</modules>
+
+</project>

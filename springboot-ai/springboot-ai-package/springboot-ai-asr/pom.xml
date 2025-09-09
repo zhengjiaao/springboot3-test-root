@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.zja</groupId>
-        <artifactId>springboot-ai</artifactId>
+        <artifactId>springboot-ai-package</artifactId>
         <version>3.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>springboot-ai-nlp</artifactId>
+    <artifactId>springboot-ai-asr</artifactId>
     <packaging>pom</packaging>
 
     <properties>
@@ -16,7 +16,6 @@
     </properties>
 
     <modules>
-        <module>springboot-nlp-hanlp</module>
     </modules>
 
 </project>
