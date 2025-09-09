@@ -1,22 +1,26 @@
 # springboot-test-root
 
-> [springboot 2.x 官方文档](https://spring.io/projects/spring-boot)
+> [springboot 3.x 官方文档](https://spring.io/projects/spring-boot)
 
 **说明**
 
-springboot 项目中常用到的一些技术集成示例，可以快速开始开箱测试，以及集成到项目当中使用。
+springboot3 项目中常用到的一些技术集成示例，可以快速开始开箱测试，以及集成到项目当中使用。
 
 ## spring-boot 集成(组件)示例
 
 > 以下是已经完成的示例模块
 
-- [springboot-ai Ai赋能](./springboot-ai)
-    - [springboot-ai-alibaba 阿里云百炼-大模型AI](./springboot-ai/springboot-ai-alibaba)
-    - [springboot-ai-asr ASR语音识别](./springboot-ai/springboot-ai-asr)
-    - [springboot-ai-chatgpt 接入OpenAI](./springboot-ai/springboot-ai-chatgpt)
-    - [springboot-ai-langchain4j 大模型语言统一API封装](./springboot-ai/springboot-ai-langchain4j)
-    - [springboot-nlp NLP自然语言分析](./springboot-ai/springboot-ai-nlp)
-    - [springboot-ocr OCR图文识别提取](./springboot-ai/springboot-ai-ocr)
+- [springboot-ai AI集成](./springboot-ai)
+    - [springboot-ai-package AI集成组件](springboot-ai/springboot-ai-package)
+    - [springboot-ai-project AI集成项目](springboot-ai/springboot-ai-project)
+- [springboot-package 组件集成示例](./springboot-package)
+    - [springboot-package-api API接口管理集成](./springboot-package/springboot-package-api)
+    - [springboot-package-db 数据库集成](./springboot-package/springboot-package-db)
+    - [springboot-package-mq 消息队列集成](./springboot-package/springboot-package-mq)
+    - [springboot-package-cache 缓存集成](./springboot-package/springboot-package-cache)
+    - [springboot-package-task 定时任务集成](./springboot-package/springboot-package-task)
+    - [springboot-package-web WEB集成](./springboot-package/springboot-package-web)
+    - [springboot-package-util 工具类集成](./springboot-package/springboot-package-util)
 - [springboot-web-19000 REST接口提供者](./springboot-web-19000)
 
 ## 本地运行环境搭建
