@@ -17,7 +17,7 @@
 
 	<modules>
 		<module>springboot-ai-package</module>
-		<module>springboot-ai-project</module>
+		<!-- <module>springboot-ai-project</module> -->
 	</modules>
 
 </project>
