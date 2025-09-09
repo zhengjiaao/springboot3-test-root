@@ -10,9 +10,9 @@ package com.zja.controller;
 
 import com.zja.service.OCRXiaoshenService;
 import com.zja.util.AsposePdfUtil;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.io.FileUtils;
@@ -35,7 +35,7 @@ import java.util.UUID;
 @Validated
 @RestController
 @RequestMapping("/rest/ocr/")
-@Api(tags = {"OCR服务页面"})
+@Tag(name = "OCR服务页面")
 public class OCRXiaoshenController {
 
     @Autowired
@@ -45,8 +45,8 @@ public class OCRXiaoshenController {
     public String storageDir;
 
     @PostMapping("/upload")
-    @ApiOperation(value = "上传文件")
-    public String upload(@ApiParam("上传文件（可以从多种不同的文件类型（例如 PDF文件、Office文件、图像文件、XLS 和 超文本标记语言文件等）中检测并提取元数据和文本）") @RequestPart(value = "file") MultipartFile file) throws IOException {
+    @Operation(summary = "上传文件")
+    public String upload(@Parameter(description = "上传文件（可以从多种不同的文件类型（例如 PDF文件、Office文件、图像文件、XLS 和 超文本标记语言文件等）中检测并提取元数据和文本）") @RequestPart(value = "file") MultipartFile file) throws IOException {
 
         if (file.isEmpty() || file.getSize() <= 0) {
             return "未选择要上传的文件！";
@@ -69,7 +69,7 @@ public class OCRXiaoshenController {
     }
 
     @GetMapping("/general")
-    @ApiOperation(value = "OCR自动识别文件格式进行提取文本内容", notes = "已启用提取pdf、word等中图片文本内容")
+    @Operation(summary = "OCR自动识别文件格式进行提取文本内容", description = "已启用提取pdf、word等中图片文本内容")
     public void autoExtractContent(@RequestParam String fileId) {
 
         String fileParentPath = storageDir + File.separator + fileId;
@@ -80,7 +80,7 @@ public class OCRXiaoshenController {
     }
 
     @GetMapping("/accurate_basic")
-    @ApiOperation(value = "OCR-图像高精度基础版", notes = "仅支持提取图像和PDF内容")
+    @Operation(summary = "OCR-图像高精度基础版", description = "仅支持提取图像和PDF内容")
     public void accurateBasic(@RequestParam String fileId,
                               @RequestParam(required = false) Integer pageNum) {
 
@@ -92,7 +92,7 @@ public class OCRXiaoshenController {
     }
 
     @GetMapping("/accurate_position")
-    @ApiOperation(value = "OCR-图像高精度含位置版", notes = "仅支持提取图像和PDF内容")
+    @Operation(summary = "OCR-图像高精度含位置版", description = "仅支持提取图像和PDF内容")
     public void accuratePosition(@RequestParam String fileId,
                                  @RequestParam(required = false) Integer pageNum) {
 
@@ -104,7 +104,7 @@ public class OCRXiaoshenController {
     }
 
     @GetMapping("/download/result")
-    @ApiOperation(value = "下载OCR提取文本的结果")
+    @Operation(summary = "下载OCR提取文本的结果")
     public void downloadResult(HttpServletResponse response,
                                @RequestParam String fileId) throws IOException {
         File resultFile = getResultFile(fileId);
@@ -123,7 +123,7 @@ public class OCRXiaoshenController {
     }
 
     @GetMapping("/to_pdf")
-    @ApiOperation(value = "转为pdf", notes = "仅支持Office格式文件")
+    @Operation(summary = "转为pdf", description = "仅支持Office格式文件")
     public String toPdf(@RequestParam String fileId) throws Exception {
 
         String fileParentPath = storageDir + File.separator + fileId;
@@ -143,7 +143,7 @@ public class OCRXiaoshenController {
     }
 
     @GetMapping("/pages_count")
-    @ApiOperation(value = "获取文件总页数", notes = "仅支持PDF")
+    @Operation(summary = "获取文件总页数", description = "仅支持PDF")
     public int pagesCount(@RequestParam String fileId) throws IOException {
 
         String fileParentPath = storageDir + File.separator + fileId;
