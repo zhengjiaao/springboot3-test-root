@@ -31,5 +31,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
          * 代理静态地址
          */
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+
+        // registry.addResourceHandler("/swagger-ui/**")
+        //         .addResourceLocations("classpath:/META-INF/resources/webjars/swagger-ui/5.9.0/")
+        //         .resourceChain(false);
     }
 }

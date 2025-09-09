@@ -19,3 +19,9 @@ spring:
 project:
   artifactId: @artifactId@
   version: @version@
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html # 访问地址：http://localhost:8080/swagger-ui/index.html
+    doc-expansion: none
+    default-models-expand-depth: 0

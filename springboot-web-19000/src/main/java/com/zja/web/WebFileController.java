@@ -9,17 +9,17 @@
 package com.zja.web;
 
 import com.zja.dto.UserDTO;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
-import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.ByteBuffer;
@@ -31,22 +31,22 @@ import java.nio.file.Files;
  * https://localhost:19001/swagger-ui/index.html#/
  */
 @CrossOrigin
-@Api(value = "提供远程-文件上传测试接口")
+@Tag(name = "提供远程-文件上传测试接口")
 @RestController
 @RequestMapping
 public class WebFileController {
 
     // 上传文件
 
-    @PostMapping(value = "/post/upload/v1")
-    @ApiOperation(value = "post-上传单文件", notes = "返回 true")
-    public Object postFile(@ApiParam("上传文件") @RequestPart(value = "file") MultipartFile file) {
+    @PostMapping(value = "/post/upload/v1", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @Operation(summary = "post-上传单文件", description = "返回 true")
+    public Object postFile(@Parameter(description = "上传文件") @RequestPart(value = "file") MultipartFile file) {
         System.out.println("上传文件：" + file.getOriginalFilename() + "  大小：" + file.getSize());
         return true;
     }
 
-    @PostMapping(value = "/post/upload/v2")
-    @ApiOperation(value = "post-上传多文件", notes = "返回 true")
+    @PostMapping(value = "/post/upload/v2", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @Operation(summary = "post-上传多文件", description = "返回 true")
     public Object postFile(@RequestPart(value = "files") MultipartFile[] files) {
         if (files.length <= 0) {
             return "未选择要上传的文件！";
@@ -58,28 +58,28 @@ public class WebFileController {
         return true;
     }
 
-    @PostMapping(value = "/post/upload/v3")
-    @ApiOperation(value = "post-上传单文件和字符串", notes = "返回 true")
-    public Object postFile(@ApiParam("上传文件") @RequestPart(value = "file") MultipartFile file,
-                           @ApiParam("新文件名称") @RequestParam String filename) {
+    @PostMapping(value = "/post/upload/v3", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @Operation(summary = "post-上传单文件和字符串", description = "返回 true")
+    public Object postFile(@Parameter(description = "上传文件") @RequestPart(value = "file") MultipartFile file,
+                           @Parameter(description = "新文件名称") @RequestParam String filename) {
         System.out.println("上传文件：" + filename + "  大小：" + file.getSize());
         return true;
     }
 
     @Deprecated // MultipartFile multipart/form-data 优先级高于 @RequestBody application/json，去掉 @RequestBody 就好
-    @PostMapping(value = "/post/upload/v4")
-    @ApiOperation(value = "post-上传单文件和json对象", notes = "返回 true")
-    public Object postFile(@ApiParam("上传文件") @RequestPart(value = "file") MultipartFile file,
-                           @ApiParam("对象") /*@RequestBody*/ UserDTO userDTO) {
+    @PostMapping(value = "/post/upload/v4", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @Operation(summary = "post-上传单文件和json对象", description = "返回 true")
+    public Object postFile(@Parameter(description = "上传文件") @RequestPart(value = "file") MultipartFile file,
+                           @Parameter(description = "对象") /*@RequestBody*/ UserDTO userDTO) {
         System.out.println("上传文件：" + file.getOriginalFilename() + "  大小：" + file.getSize());
         System.out.println(userDTO.toString());
         return true;
     }
 
-    @PostMapping(value = "/post/upload/v5")
-    @ApiOperation(value = "post-上传多文件和字符串", notes = "返回 true")
+    @PostMapping(value = "/post/upload/v5", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @Operation(summary = "post-上传多文件和字符串", description = "返回 true")
     public Object postFile(@RequestPart(value = "files") MultipartFile[] files,
-                           @ApiParam("新文件名称") @RequestParam String filename) {
+                           @Parameter(description = "新文件名称") @RequestParam String filename) {
         if (files.length <= 0) {
             return "未选择要上传的文件！";
         }
@@ -91,10 +91,13 @@ public class WebFileController {
         return true;
     }
 
-    @PostMapping(value = "/post/upload/v6")
-    @ApiOperation(value = "post-上传多文件和字符串", notes = "返回 true")
-    public Object postFile(@RequestPart(value = "files") MultipartFile[] files,
-                           @ApiParam("对象") UserDTO userDTO) {
+    @Deprecated // MultipartFile multipart/form-data, 采用 UserDTO 接收不到数据
+    @PostMapping(value = "/post/upload/v6", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @Operation(summary = "post-上传多文件和字符串", description = "返回 true")
+    public Object postFileV6(@RequestPart(value = "files") MultipartFile[] files
+                           // @RequestPart("userDTO") UserDTO userDTO  // 不可用
+                           // UserDTO userDTO  // 不可用
+    ) {
         if (files.length <= 0) {
             return "未选择要上传的文件！";
         }
@@ -102,7 +105,7 @@ public class WebFileController {
             MultipartFile file = files[i];
             System.out.println("上传文件：" + file.getOriginalFilename() + "  大小：" + file.getSize());
         }
-        System.out.println(userDTO.toString());
+        // System.out.println(userDTO.toString());
         return true;
     }
 
@@ -110,8 +113,8 @@ public class WebFileController {
     // 下载文件
 
     @GetMapping(value = "get/download/v1")
-    @ApiOperation(value = "下载文件-文件URL")
-    public String downloadfile(@ApiParam(value = "filename", defaultValue = "test.jpg") @RequestParam String filename,
+    @Operation(summary = "下载文件-文件URL")
+    public String downloadfile(@Parameter(description = "filename", example = "test.jpg") @RequestParam String filename,
                                HttpServletRequest request) {
         String urlContextPath = getUrlContextPath(request);
         String fileUrl = urlContextPath + "/file/" + filename;
@@ -119,21 +122,21 @@ public class WebFileController {
     }
 
     @GetMapping(value = "get/download/v2")
-    @ApiOperation(value = "下载文件-文件流")
+    @Operation(summary = "下载文件-文件流")
     public void downloadFileByGet(HttpServletResponse response,
-                                  @ApiParam(value = "filename", defaultValue = "test.jpg") @RequestParam String filename) throws IOException {
+                                  @Parameter(description = "filename", example = "test.jpg") @RequestParam String filename) throws IOException {
         downloadFile(response, filename);
     }
 
     @PostMapping(value = "post/download/v1")
-    @ApiOperation(value = "下载文件-文件流")
+    @Operation(summary = "下载文件-文件流")
     public void downloadFileByPost(HttpServletResponse response,
-                                   @ApiParam(value = "filename", defaultValue = "test.jpg") @RequestParam String filename) throws IOException {
+                                   @Parameter(description = "filename", example = "test.jpg") @RequestParam String filename) throws IOException {
         downloadFile(response, filename);
     }
 
     @GetMapping("get/download/stream/v1")
-    @ApiOperation(value = "下载大文件-采用文件流", notes = "确保文件在下载完成后被删除，以避免临时文件的累积和资源浪费")
+    @Operation(summary = "下载大文件-采用文件流", description = "确保文件在下载完成后被删除，以避免临时文件的累积和资源浪费")
     public ResponseEntity<StreamingResponseBody> downloadFileStreamV1(String filePath) {
         // 获取文件对象
         File downloadFile = new File(filePath);
@@ -169,7 +172,7 @@ public class WebFileController {
     }
 
     @GetMapping("get/download/stream/v2")
-    @ApiOperation(value = "下载大文件-文件流-采用通道", notes = "确保文件在下载完成后被删除，以避免临时文件的累积和资源浪费")
+    @Operation(summary = "下载大文件-文件流-采用通道", description = "确保文件在下载完成后被删除，以避免临时文件的累积和资源浪费")
     public ResponseEntity<StreamingResponseBody> downloadFileStreamV2(String filePath) {
         // 获取文件对象
         File downloadFile = new File(filePath);

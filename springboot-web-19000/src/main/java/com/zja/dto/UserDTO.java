@@ -1,7 +1,6 @@
 package com.zja.dto;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -11,13 +10,13 @@ import java.util.Date;
  * @author: zhengja
  * @since: 2019/6/27 16:35
  */
-@ApiModel(value = "用户信息")
+@Schema(description = "用户信息")
 @Data
-public class UserDTO implements Serializable{
-    @ApiModelProperty(value = "用户id")
+public class UserDTO implements Serializable {
+    @Schema(description = "用户id")
     private String id;
-    @ApiModelProperty(value = "用户名")
+    @Schema(description = "用户名")
     private String name;
-    @ApiModelProperty(value = "时间")
+    @Schema(description = "时间")
     private Date date;
 }

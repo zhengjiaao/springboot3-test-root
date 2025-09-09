@@ -8,7 +8,6 @@
         <version>3.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.zja</groupId>
     <artifactId>springboot-web-19000</artifactId>
     <packaging>war</packaging>
 
@@ -26,10 +25,22 @@
             <artifactId>spring-boot-starter-tomcat</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!-- springfox 与 springboot3 不兼容 -->
+        <!-- <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
+        </dependency> -->
+        <!-- springdoc-openapi-ui for swagger ui -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.8.9</version>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -40,11 +51,6 @@
             <artifactId>commons-io</artifactId>
             <version>2.11.0</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
         </dependency>
     </dependencies>
 
