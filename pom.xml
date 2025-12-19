@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.7</version>
+        <version>3.5.9</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -18,7 +18,9 @@
 
     <modules>
         <module>springboot-ai</module>
+        <module>springboot-cloud</module>
         <module>springboot-package</module>
+        <module>springboot-starter</module>
         <module>springboot-web-19000</module>
     </modules>
 
@@ -38,9 +40,9 @@
 
         <!-- plugin versions -->
         <maven-clean-plugin.version>3.4.1</maven-clean-plugin.version>
-        <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
         <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
-        <maven-surefire-plugin.version>3.5.3</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
         <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
 
         <!-- production dependencies -->
