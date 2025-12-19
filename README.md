@@ -70,13 +70,14 @@ springboot3 项目中常用到的一些技术集成示例，可以快速开始�
     - https://spring.io/projects/spring-cloud#overview
     - https://docs.spring.io/spring-boot/docs/{springboot-verion}/reference/htmlsingle/
 
-| Spring Boot   | Spring Framework | Spring Cloud             | spring-cloud-alibaba | Java        | Maven          | Gradle                     | Tomcat                   |
-|---------------|------------------|--------------------------|----------------------|-------------|----------------|----------------------------|--------------------------|
-| 3.5.x         | 6.0.x            | 2025.0.x aka Northfields | 2025.x               | Java 17     | 3.6.3 or later | 7.x (7.5 or later) and 8.x | Tomcat 10.x              |
-| 3.4.x         | 6.0.x            | 2024.0.x aka Moorgate    | 2024.x               | Java 17     | 3.6.3 or later | 7.x (7.5 or later) and 8.x | Tomcat 10.x              |
-| 3.3.x         | 6.0.x            | 2023.0.x aka Leyton      | 2023.x               | Java 17     | 3.6.3 or later | 7.x (7.5 or later) and 8.x | Tomcat 10.x              |
-| 3.2.x         | 6.0.x            | 2023.0.x aka Leyton      | 2023.x               | Java 17     | 3.6.3 or later | 7.x (7.5 or later) and 8.x | Tomcat 10.x              |
-| 2.7.x         | 5.3.x            | 2021.0.x                 | 2021.x               | Java 8 or 9 | 3.5+           | 6.8+                       | Tomcat 9.x               |
-| 2.5.x         | 5.3.x            | 2020.0.x                 | 2020.x               | Java 8 or 9 | 3.5+           | 6.8+                       | Tomcat 8.x or Tomcat 9.x |
-| 2.3.x.RELEASE | 5.2.x.RELEASE    | Hoxton                   | 2.2.x                | Java 8 or 9 | 3.3+           | 4.4+                       | Tomcat 8.x or Tomcat 9.x |
-| 1.5.x.RELEASE | 4.x.x.RELEASE    | Edgware                  | 1.5.x                | Java 7 or 8 | 3.2+           | 2.9+                       | Tomcat 7.x or Tomcat 8.x |
+| Spring Boot   | Spring Framework | Spring Cloud             | spring-cloud-alibaba | Java                      | Maven          | Gradle                      | Tomcat                   | Servlet | 
+|---------------|------------------|--------------------------|----------------------|---------------------------|----------------|-----------------------------|--------------------------|---------|
+| 4.0.x         | 7.0.2            | 2025.1.x aka Oakwood     | 2025.x               | Java 17、并兼容 Java 25 及更高版本 | 3.6.3 or later | 8.x (8.14 or later) and 9.x | Tomcat 11.0.x            | 6.1     |
+| 3.5.x         | 6.0.x            | 2025.0.x aka Northfields | 2025.x               | Java 17、并兼容 Java 25 及更高版本 | 3.6.3 or later | 7.x (7.5 or later) and 8.x  | Tomcat 10.x              | 6.0     |
+| 3.4.x         | 6.0.x            | 2024.0.x aka Moorgate    | 2024.x               | Java 17                   | 3.6.3 or later | 7.x (7.5 or later) and 8.x  | Tomcat 10.x              |         |
+| 3.3.x         | 6.0.x            | 2023.0.x aka Leyton      | 2023.x               | Java 17                   | 3.6.3 or later | 7.x (7.5 or later) and 8.x  | Tomcat 10.x              |         |
+| 3.2.x         | 6.0.x            | 2023.0.x aka Leyton      | 2023.x               | Java 17                   | 3.6.3 or later | 7.x (7.5 or later) and 8.x  | Tomcat 10.x              |         |
+| 2.7.x         | 5.3.x            | 2021.0.x                 | 2021.x               | Java 8 or 9               | 3.5+           | 6.8+                        | Tomcat 9.x               |         |
+| 2.5.x         | 5.3.x            | 2020.0.x                 | 2020.x               | Java 8 or 9               | 3.5+           | 6.8+                        | Tomcat 8.x or Tomcat 9.x |         |
+| 2.3.x.RELEASE | 5.2.x.RELEASE    | Hoxton                   | 2.2.x                | Java 8 or 9               | 3.3+           | 4.4+                        | Tomcat 8.x or Tomcat 9.x |         |
+| 1.5.x.RELEASE | 4.x.x.RELEASE    | Edgware                  | 1.5.x                | Java 7 or 8               | 3.2+           | 2.9+                        | Tomcat 7.x or Tomcat 8.x |         |
